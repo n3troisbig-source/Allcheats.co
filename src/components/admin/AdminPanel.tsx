@@ -103,10 +103,14 @@ export default function AdminPanel({ onClose }: Props) {
   const logout = () => {
     localStorage.removeItem('ac_logged_in');
     setCurrentUser(null);
+    // Notify App.tsx to update the navbar immediately
+    window.dispatchEvent(new Event('ac_auth_changed'));
   };
 
   const handleLogin = (account: AdminAccount) => {
     setCurrentUser(account);
+    // Notify App.tsx navbar to update immediately
+    window.dispatchEvent(new Event('ac_auth_changed'));
   };
 
   if (!currentUser) {

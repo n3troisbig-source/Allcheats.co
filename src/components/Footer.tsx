@@ -57,11 +57,18 @@ export default function Footer() {
           {/* Payment */}
           <div>
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-400">Payment</h4>
+            <div className="flex items-center gap-2 rounded-lg border border-dark-500 bg-dark-700 p-3 mb-2">
+              <DollarSign className="h-5 w-5 text-green-400" />
+              <div>
+                <p className="text-xs text-gray-500">CashApp — AI Aimbot (All Cheats AI)</p>
+                <p className="font-mono text-sm font-bold text-green-400">$allcheats</p>
+              </div>
+            </div>
             <div className="flex items-center gap-2 rounded-lg border border-dark-500 bg-dark-700 p-3">
               <DollarSign className="h-5 w-5 text-green-400" />
               <div>
-                <p className="text-xs text-gray-500">CashApp</p>
-                <p className="font-mono text-sm font-bold text-green-400">$allcheats</p>
+                <p className="text-xs text-gray-500">CashApp — Acc Gen</p>
+                <p className="font-mono text-sm font-bold text-green-400">$souz1902</p>
               </div>
             </div>
             <div className="mt-3">

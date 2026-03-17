@@ -329,8 +329,11 @@ export default function ProductCard({ product }: { product: Product }) {
                     <p className="text-xs font-semibold text-green-400 mb-1">💸 Payment via CashApp</p>
                     <p className="text-sm text-gray-300">
                       Send <span className="font-bold text-white">${priceNum.toFixed(2)}</span> to{' '}
-                      <span className="font-mono font-bold text-green-400">$allcheats</span>
+                      <span className="font-mono font-bold text-green-400">{product.id === 'p2' ? '$souz1902' : '$allcheats'}</span>
                     </p>
+                    {product.id === 'p2' && (
+                      <p className="text-[11px] text-gray-500">Acc Gen payments go to <span className="font-mono text-green-400">$souz1902</span></p>
+                    )}
                   </div>
 
                   {/* Ticket instruction */}
@@ -414,7 +417,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
                     <div className="flex items-start gap-2.5 text-xs text-gray-400">
                       <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-red-primary/20 text-red-light font-bold text-[10px]">1</span>
-                      <span>Send <span className="text-white font-bold">${priceNum.toFixed(2)}</span> to CashApp tag <span className="font-mono text-green-400 font-bold">$allcheats</span></span>
+                      <span>Send <span className="text-white font-bold">${priceNum.toFixed(2)}</span> to CashApp tag <span className="font-mono text-green-400 font-bold">{product.id === 'p2' ? '$souz1902' : '$allcheats'}</span></span>
                     </div>
 
                     <div className="flex items-start gap-2.5 text-xs text-gray-400">
