@@ -6,6 +6,7 @@ import Features from './components/Features';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import AdminPanel from './components/admin/AdminPanel';
+import LiveFeed from './components/LiveFeed';
 
 export default function App() {
   const [adminOpen, setAdminOpen] = useState(false);
@@ -31,6 +32,9 @@ export default function App() {
 
       {/* Admin Panel */}
       {adminOpen && <AdminPanel onClose={() => setAdminOpen(false)} />}
+
+      {/* Live purchase feed - bottom left */}
+      <LiveFeed />
     </div>
   );
 }

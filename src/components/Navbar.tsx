@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Menu, X, ShieldCheck, Lock } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, ShieldCheck, Lock, Users } from 'lucide-react';
 
 interface Props {
   onAdminOpen: () => void;
@@ -7,6 +7,17 @@ interface Props {
 
 export default function Navbar({ onAdminOpen }: Props) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [viewers, setViewers] = useState(() => Math.floor(Math.random() * 40) + 60); // 60–100
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setViewers(prev => {
+        const delta = Math.floor(Math.random() * 7) - 3; // -3 to +3
+        return Math.min(150, Math.max(40, prev + delta));
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -21,6 +32,16 @@ export default function Navbar({ onAdminOpen }: Props) {
           <span className="text-xl font-bold tracking-tight text-white">
             Allcheats<span className="text-red-light">.co</span>
           </span>
+        </div>
+
+        {/* Live viewer count - center */}
+        <div className="hidden md:flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-semibold text-green-400">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+          </span>
+          <Users className="h-3 w-3" />
+          <span>{viewers} browsing now</span>
         </div>
 
         {/* Desktop nav */}
