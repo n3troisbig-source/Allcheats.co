@@ -12,7 +12,7 @@ export interface AdminAccount {
 export const defaultAdminAccounts: AdminAccount[] = [
   {
     id: '1',
-    username: 'Redxvk',
+    username: 'Red.gov',
     password: '@@Redxvk2847!!',
     role: 'Owner',
     active: true,
